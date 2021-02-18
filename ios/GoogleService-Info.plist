@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>421766737786-fu73g3fsgptj27i5vko8vsjn2v2jspal.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.421766737786-fu73g3fsgptj27i5vko8vsjn2v2jspal</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB9c_LlqhQKPdNBUN3deRNcTtDxEE9rJH8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>421766737786</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>lp.com.garam</string>
+	<key>PROJECT_ID</key>
+	<string>garam-98148</string>
+	<key>STORAGE_BUCKET</key>
+	<string>garam-98148.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:421766737786:ios:b6f00ac45a1b5fa1e170c3</string>
+</dict>
+</plist>
