@@ -7,16 +7,22 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
   "dependencies": {
+    "@react-native-firebase/analytics": "^6.7.1",
+    "@react-native-firebase/app": "^6.7.1",
+    "@react-native-firebase/dynamic-links": "^6.7.1",
     "axios": "^0.18.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-firebase": "^5.3.1",
+    "react-native-deep-linking": "^2.2.0",
+    "react-native-firebase": "^5.6.0",
     "react-native-iphone-x-helper": "^1.2.1",
     "react-native-splash-screen": "^3.2.0",
     "react-native-webview": "^11.2.1",
+    "rn-ios-user-agent": "^2.0.0",
     "rn-webview": "0.1.0"
   },
   "devDependencies": {

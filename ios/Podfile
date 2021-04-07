@@ -1,19 +1,29 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
+
+$FirebaseSDKVersion = '6.15.0'
+$RNFirebaseAsStaticFramework = true
+
 
 target 'garam_ios' do
   config = use_native_modules!
   
   # Pods for garam_ios
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
+  pod 'FirebaseCore'
+  pod 'FirebaseMessaging'
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/DynamicLinks'
+  
 
   use_react_native!(:path => config["reactNativePath"])
   
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  pod 'rn-ios-user-agent', :path => '../node_modules/rn-ios-user-agent'
 
   target 'garam_iosTests' do
     inherit! :complete
@@ -24,10 +34,13 @@ target 'garam_ios' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  use_flipper!
-  post_install do |installer|
-    flipper_post_install(installer)
-  end
+  
+#  use_flipper!({ 'Flipper-Folly' => '2.3.0' })
+  
+#  use_flipper!
+#  post_install do |installer|
+#    flipper_post_install(installer)
+#  end
 end
 
 target 'garam_ios-tvOS' do

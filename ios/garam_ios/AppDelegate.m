@@ -6,6 +6,10 @@
 #import "RNSplashScreen.h"
 
 #import <UserNotifications/UserNotifications.h>
+#import <React/RCTLinkingManager.h>
+
+#import "RNFBDynamicLinksModule.h"
+#import "RNFBDynamicLinksAppDelegateInterceptor.h"
 
 #import <Firebase.h>
 #import "RNFirebaseNotifications.h"
@@ -102,6 +106,25 @@ return UIStatusBarStyleDarkContent;
   [RNSplashScreen show];
   
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  return [RCTLinkingManager application:application openURL:url
+                      sourceApplication:sourceApplication annotation:annotation];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<NSString *, id> *)options {
+    return [[RNFBDynamicLinksAppDelegateInterceptor sharedInstance] application:application openURL:url options:options];
+}
+
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray *))restorationHandler {
+     return [[RNFBDynamicLinksAppDelegateInterceptor sharedInstance] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

@@ -20,8 +20,30 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>lp.com.garam</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>garamfood</string>
+			</array>
+		</dict>
+		<dict/>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https://garamfood.page.link</string>
+		<string>https://garamfood.net</string>
+		<string>https://garamfood.net/home</string>
+	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakao0123456789abcdefghijklmn</string>
