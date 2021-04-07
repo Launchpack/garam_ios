@@ -7,14 +7,16 @@
  */
 
 import React, { Component, Fragment } from 'react';
-import { Platform, StyleSheet, TouchableHighlight, Text, Image, View, Linking, StatusBar, SafeAreaView } from 'react-native';
+import { AppState, Platform, StyleSheet, TouchableHighlight, Text, Image, View, Linking, StatusBar, SafeAreaView } from 'react-native';
 import { isIphoneX } from 'react-native-iphone-x-helper'
 //import WebView from 'rn-webview';
 import {WebView} from 'react-native-webview';
 import axios from 'axios';
 import firebase from 'react-native-firebase';
+import dynamicLinks from '@react-native-firebase/dynamic-links';
 import { Notification } from 'react-native-firebase';
 import { RemoteMessage } from 'react-native-firebase';
+import UserAgentIOS from "rn-ios-user-agent";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -52,6 +54,7 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
+      appState: AppState.currentState,
       url: 'https://garamfood.net/',
       outlink_url: '',
       vWebView: true,
@@ -67,7 +70,34 @@ export default class App extends Component<Props> {
     this.onWebViewMessage = this.onWebViewMessage.bind(this);
   }
 
+  _handleAppStateChange = async nextAppState => {
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === "active"
+    ) {
+      console.log("App has come to the foreground!");
+      const handleDynamicLink = link => {
+        // Handle dynamic link inside your own application
+        console.log('handle link', link)
+        this.setState({
+          webviewUrl: link.url
+        });
+      };
+
+      const dyUrl = dynamicLinks().onLink(handleDynamicLink);
+      
+    // When the component is unmounted, remove the listener
+    // return () => unsubscribe();
+
+    }
+    this.setState({ appState: nextAppState });
+  };
+
   componentDidMount() {
+    console.log('componentDidMount')
+    AppState.addEventListener("change", this._handleAppStateChange);
+
+    UserAgentIOS.set("Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 inApp")
     // StatusBar.setBackgroundColor('white');
     // StatusBar.setBarStyle('dark-content');
 
@@ -185,7 +215,7 @@ export default class App extends Component<Props> {
     });
 
     Linking.addEventListener('url', (e) => {
-      // do something with the url, in our case navigate(route)
+      console.log('Linking')
       this.setState({
         webviewUrl: 'https://garamfood.net'
       });
@@ -200,6 +230,8 @@ export default class App extends Component<Props> {
   }
 
   componentWillUnmount() {
+    console.log('componentWillUnmount');
+    AppState.removeEventListener("change", this._handleAppStateChange);
     this.notificationDisplayedListener();
     this.notificationListener();
     this.notificationOpenedListener();
@@ -238,6 +270,7 @@ export default class App extends Component<Props> {
   }
 
   isOutlink(url) {
+    console.log('isOutlink',url)
     // if (
     //   url.indexOf('inicis') > -1 ||
     //   url.indexOf('facebook.com') > -1 ||
@@ -266,6 +299,10 @@ export default class App extends Component<Props> {
           || url.indexOf('ssgpay')>-1
           || url.indexOf('chai')>-1
           || url.indexOf('pay.')>-1
+          || url.indexOf('checkplus')>-1
+          || url.indexOf('tauthlink://')>-1
+          || url.indexOf('ktauthexternalcall://')>-1
+          || url.indexOf('upluscorporation://')>-1
           || url.indexOf('citibank')>-1) {
           return false;
         }
@@ -282,6 +319,7 @@ export default class App extends Component<Props> {
   }
 
   handleDataReceived(msgData) {
+    console.log('handleDataReceived')
     //console.log('메시지 데이타', msgData);
     //this.webview.postMessage(JSON.stringify(msgData));
   }
