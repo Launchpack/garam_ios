@@ -12,11 +12,14 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2A1458B5FF4A76D2A871ADA9 /* libPods-ImageNotifications.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E28C54612FB0DD580413DBA /* libPods-ImageNotifications.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* garam_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* garam_iosTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C9918274265CF5D900C68199 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = C9918273265CF5D900C68199 /* NotificationService.m */; };
+		C9918278265CF5D900C68199 /* ImageNotifications.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9918270265CF5D900C68199 /* ImageNotifications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C9A868ED25B02F2900379088 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A868EC25B02F2900379088 /* GoogleService-Info.plist */; };
 		C9A8693325B0442F00379088 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8693225B0442F00379088 /* libRNFirebase.a */; };
 		CA3BE6E620B72396F1E82CE6 /* libPods-garam_ios-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E672BDA8EF4832382C00BA9 /* libPods-garam_ios-tvOS.a */; };
@@ -39,7 +42,28 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "garam_ios-tvOS";
 		};
+		C9918276265CF5D900C68199 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C991826F265CF5D900C68199;
+			remoteInfo = ImageNotifications;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9918268265CEE5A00C68199 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9918278265CF5D900C68199 /* ImageNotifications.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -47,6 +71,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* garam_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = garam_iosTests.m; sourceTree = "<group>"; };
 		00F6478C971415D428C06640 /* Pods-garam_ios-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios-tvOS.release.xcconfig"; path = "Target Support Files/Pods-garam_ios-tvOS/Pods-garam_ios-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		01A50FDFACBC8E8AA3AAB1D5 /* Pods-ImageNotifications.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageNotifications.debug.xcconfig"; path = "Target Support Files/Pods-ImageNotifications/Pods-ImageNotifications.debug.xcconfig"; sourceTree = "<group>"; };
 		1116B233615C4FA0250D659F /* Pods-garam_ios-garam_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios-garam_iosTests.release.xcconfig"; path = "Target Support Files/Pods-garam_ios-garam_iosTests/Pods-garam_ios-garam_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* garam_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garam_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = garam_ios/AppDelegate.h; sourceTree = "<group>"; };
@@ -60,14 +85,21 @@
 		664B4DDCFB83402E8903AAFD /* Pods-garam_ios-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-garam_ios-tvOS/Pods-garam_ios-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		722010553A3004BB73A24834 /* Pods-garam_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios.release.xcconfig"; path = "Target Support Files/Pods-garam_ios/Pods-garam_ios.release.xcconfig"; sourceTree = "<group>"; };
 		7D48F483EA27071533DB9B75 /* Pods-garam_ios-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-garam_ios-tvOSTests/Pods-garam_ios-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E28C54612FB0DD580413DBA /* libPods-ImageNotifications.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageNotifications.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = garam_ios/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E672BDA8EF4832382C00BA9 /* libPods-garam_ios-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-garam_ios-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9985C18EEED9A117A7F3B733 /* Pods-garam_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios.debug.xcconfig"; path = "Target Support Files/Pods-garam_ios/Pods-garam_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A90F8AA04BFC62E787308697 /* libPods-garam_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-garam_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB478920787A842E39BC9796 /* libPods-garam_ios-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-garam_ios-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9918270265CF5D900C68199 /* ImageNotifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ImageNotifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9918272265CF5D900C68199 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		C9918273265CF5D900C68199 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		C9918275265CF5D900C68199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9A868EB25B02DB000379088 /* garam_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = garam_ios.entitlements; path = garam_ios/garam_ios.entitlements; sourceTree = "<group>"; };
 		C9A868EC25B02F2900379088 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9A8693225B0442F00379088 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNFirebase.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C6F0E6265B522D005D6B72 /* garam_iosDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = garam_iosDebug.entitlements; path = garam_ios/garam_iosDebug.entitlements; sourceTree = "<group>"; };
+		E3BCAD9370791AAAD70C01FB /* Pods-ImageNotifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageNotifications.release.xcconfig"; path = "Target Support Files/Pods-ImageNotifications/Pods-ImageNotifications.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F33151F8667281A520EEAA26 /* Pods-garam_ios-garam_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-garam_ios-garam_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-garam_ios-garam_iosTests/Pods-garam_ios-garam_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +140,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C991826D265CF5D900C68199 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A1458B5FF4A76D2A871ADA9 /* libPods-ImageNotifications.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -131,6 +171,7 @@
 		13B07FAE1A68108700A75B9A /* garam_ios */ = {
 			isa = PBXGroup;
 			children = (
+				C9C6F0E6265B522D005D6B72 /* garam_iosDebug.entitlements */,
 				C9A868EB25B02DB000379088 /* garam_ios.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -154,6 +195,7 @@
 				FD0BD7458B9AA81ADA1881E7 /* libPods-garam_ios-garam_iosTests.a */,
 				8E672BDA8EF4832382C00BA9 /* libPods-garam_ios-tvOS.a */,
 				BB478920787A842E39BC9796 /* libPods-garam_ios-tvOSTests.a */,
+				7E28C54612FB0DD580413DBA /* libPods-ImageNotifications.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,6 +213,7 @@
 				13B07FAE1A68108700A75B9A /* garam_ios */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* garam_iosTests */,
+				C9918271265CF5D900C68199 /* ImageNotifications */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A2CB9D2898A102A01487A417 /* Pods */,
@@ -187,6 +230,7 @@
 				00E356EE1AD99517003FC87E /* garam_iosTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* garam_ios-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* garam_ios-tvOSTests.xctest */,
+				C9918270265CF5D900C68199 /* ImageNotifications.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,8 +246,20 @@
 				00F6478C971415D428C06640 /* Pods-garam_ios-tvOS.release.xcconfig */,
 				7D48F483EA27071533DB9B75 /* Pods-garam_ios-tvOSTests.debug.xcconfig */,
 				2CA573A3669AF2B46DE5D490 /* Pods-garam_ios-tvOSTests.release.xcconfig */,
+				01A50FDFACBC8E8AA3AAB1D5 /* Pods-ImageNotifications.debug.xcconfig */,
+				E3BCAD9370791AAAD70C01FB /* Pods-ImageNotifications.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C9918271265CF5D900C68199 /* ImageNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				C9918272265CF5D900C68199 /* NotificationService.h */,
+				C9918273265CF5D900C68199 /* NotificationService.m */,
+				C9918275265CF5D900C68199 /* Info.plist */,
+			);
+			path = ImageNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,10 +297,12 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				AD55C618D1BFA37E79174DB1 /* [CP] Copy Pods Resources */,
 				66F0240CEA434C46A4DC6843 /* [CP-User] [RNFB] Core Configuration */,
+				C9918268265CEE5A00C68199 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9918277265CF5D900C68199 /* PBXTargetDependency */,
 			);
 			name = garam_ios;
 			productName = garam_ios;
@@ -290,12 +348,31 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* garam_ios-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C991826F265CF5D900C68199 /* ImageNotifications */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C991827B265CF5D900C68199 /* Build configuration list for PBXNativeTarget "ImageNotifications" */;
+			buildPhases = (
+				D8A4F9ABADA655CE3FD5A75D /* [CP] Check Pods Manifest.lock */,
+				C991826C265CF5D900C68199 /* Sources */,
+				C991826D265CF5D900C68199 /* Frameworks */,
+				C991826E265CF5D900C68199 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageNotifications;
+			productName = ImageNotifications;
+			productReference = C9918270265CF5D900C68199 /* ImageNotifications.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -316,6 +393,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
+					C991826F265CF5D900C68199 = {
+						CreatedOnToolsVersion = 12.5;
+						DevelopmentTeam = 8UTGX3XCVF;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "garam_ios" */;
@@ -335,6 +417,7 @@
 				00E356ED1AD99517003FC87E /* garam_iosTests */,
 				2D02E47A1E0B4A5D006451C7 /* garam_ios-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* garam_ios-tvOSTests */,
+				C991826F265CF5D900C68199 /* ImageNotifications */,
 			);
 		};
 /* End PBXProject section */
@@ -366,6 +449,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C991826E265CF5D900C68199 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,6 +627,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D8A4F9ABADA655CE3FD5A75D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageNotifications-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,6 +724,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C991826C265CF5D900C68199 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9918274265CF5D900C68199 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -624,6 +744,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* garam_ios-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		C9918277265CF5D900C68199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C991826F265CF5D900C68199 /* ImageNotifications */;
+			targetProxy = C9918276265CF5D900C68199 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -678,15 +803,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = garam_ios/garam_ios.entitlements;
+				CODE_SIGN_ENTITLEMENTS = garam_ios/garam_iosDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 8UTGX3XCVF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = garam_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -711,11 +836,11 @@
 				CODE_SIGN_ENTITLEMENTS = garam_ios/garam_ios.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 8UTGX3XCVF;
 				INFOPLIST_FILE = garam_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -952,6 +1077,66 @@
 			};
 			name = Release;
 		};
+		C9918279265CF5D900C68199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01A50FDFACBC8E8AA3AAB1D5 /* Pods-ImageNotifications.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8UTGX3XCVF;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ImageNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.2.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = lp.com.garam.ImageNotifications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C991827A265CF5D900C68199 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3BCAD9370791AAAD70C01FB /* Pods-ImageNotifications.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 13;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8UTGX3XCVF;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ImageNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.2.7;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = lp.com.garam.ImageNotifications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -996,6 +1181,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C991827B265CF5D900C68199 /* Build configuration list for PBXNativeTarget "ImageNotifications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9918279265CF5D900C68199 /* Debug */,
+				C991827A265CF5D900C68199 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
