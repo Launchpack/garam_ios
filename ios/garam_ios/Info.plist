@@ -37,7 +37,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
+	<string>NO</string>
 	<key>FirebaseDynamicLinksCustomDomains</key>
 	<array>
 		<string>https://garamfood.page.link</string>
@@ -103,6 +103,11 @@
 	<string>현재 위치를 기반으로 상품을 근거리순으로 보여드리려고 합니다. 현재 위치에 접근하기 위해서는 위치 정보 사용 동의가 필요합니다. 위치 정보 사용에 동의하시겠습니까?</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>$(PRODUCT_NAME) 프로필, 게시물 이미지 첨부를 위해 사진 접근에 허용하시겠습니까?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

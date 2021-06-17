@@ -52,3 +52,6 @@ target 'garam_ios-tvOS' do
   end
 end
 
+target 'ImageNotifications' do
+  pod 'Firebase/Messaging', '~> 6.15.0'
+end

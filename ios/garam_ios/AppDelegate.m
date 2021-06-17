@@ -60,7 +60,7 @@ return UIStatusBarStyleDarkContent;
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"garam_ios"
                                             initialProperties:nil];
-  
+  NSLog(@"test");
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
@@ -143,6 +143,9 @@ continueUserActivity:(NSUserActivity *)userActivity
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo
 fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
+  
+//completionHandler(UIBackgroundFetchResultNewData);
+
   [[RNFirebaseNotifications instance] didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
 

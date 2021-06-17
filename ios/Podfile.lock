@@ -22,6 +22,9 @@ PODS:
   - Firebase/DynamicLinks (6.15.0):
     - Firebase/CoreOnly
     - FirebaseDynamicLinks (~> 4.0.6)
+  - Firebase/Messaging (6.15.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.2.0)
   - FirebaseAnalytics (6.2.1):
     - FirebaseCore (~> 6.6)
     - FirebaseInstanceID (~> 4.3)
@@ -57,7 +60,7 @@ PODS:
     - FirebaseInstallations (~> 1.0)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/UserDefaults (~> 6.5)
-  - FirebaseMessaging (4.4.1):
+  - FirebaseMessaging (4.2.1):
     - FirebaseAnalyticsInterop (~> 1.5)
     - FirebaseCore (~> 6.6)
     - FirebaseInstanceID (~> 4.3)
@@ -111,7 +114,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.12)
-  - Protobuf (3.14.0)
+  - Protobuf (3.17.0)
   - RCTRequired (0.63.2)
   - RCTTypeSafety (0.63.2):
     - FBLazyVector (= 0.63.2)
@@ -357,6 +360,11 @@ PODS:
     - Firebase/DynamicLinks (= 6.15.0)
     - React
     - RNFBApp
+  - RNFBMessaging (6.7.1):
+    - Firebase/Core (= 6.15.0)
+    - Firebase/Messaging (= 6.15.0)
+    - React
+    - RNFBApp
   - RNFirebase (5.6.0):
     - Firebase/Core
     - React
@@ -374,6 +382,7 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Firebase/Analytics
   - Firebase/DynamicLinks
+  - Firebase/Messaging (~> 6.15.0)
   - FirebaseCore
   - FirebaseMessaging
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
@@ -406,6 +415,7 @@ DEPENDENCIES:
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBDynamicLinks (from `../node_modules/@react-native-firebase/dynamic-links`)"
+  - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -495,6 +505,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBDynamicLinks:
     :path: "../node_modules/@react-native-firebase/dynamic-links"
+  RNFBMessaging:
+    :path: "../node_modules/@react-native-firebase/messaging"
   RNFirebase:
     :path: "../node_modules/react-native-firebase/ios"
   Yoga:
@@ -516,7 +528,7 @@ SPEC CHECKSUMS:
   FirebaseDynamicLinks: 417dc6dbb6013233c77558290d73296f429656a6
   FirebaseInstallations: 6f5f680e65dc374397a483c32d1799ba822a395b
   FirebaseInstanceID: cef67c4967c7cecb56ea65d8acbb4834825c587b
-  FirebaseMessaging: 29543feb343b09546ab3aa04d008ee8595b43c44
+  FirebaseMessaging: 9e23f9d603b1fb71ccbeb48d79bf0d4ba0272c84
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   GoogleAppMeasurement: a08a43b8677b95ed51fcef880e36737334d804fd
@@ -525,7 +537,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Protobuf: 0cde852566359049847168e51bd1c690e0f70056
+  Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
   React: e1c65dd41cb9db13b99f24608e47dd595f28ca9a
@@ -552,9 +564,10 @@ SPEC CHECKSUMS:
   RNFBAnalytics: 3131537e1d2240f37dda02e0c825199f3ee9cab1
   RNFBApp: eb9af880d03609041d6d60525561157775cf436b
   RNFBDynamicLinks: 9f27024f021ae9d183e41ef68d6f85a42bd30f14
+  RNFBMessaging: 968628591eb841279b1d7ecea6d858261d19c948
   RNFirebase: 37daa9a346d070f9f6ee1f3b4aaf4c8e3b1d5d1c
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
 
-PODFILE CHECKSUM: 2c3a64c830da710677992b911a6fc2c3f54d5916
+PODFILE CHECKSUM: e90835098f4799884f53f0ead53ad84c2e256296
 
 COCOAPODS: 1.10.1

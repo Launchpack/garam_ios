@@ -13,6 +13,7 @@ import { isIphoneX } from 'react-native-iphone-x-helper'
 import {WebView} from 'react-native-webview';
 import axios from 'axios';
 import firebase from 'react-native-firebase';
+import messaging from '@react-native-firebase/messaging';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import { Notification } from 'react-native-firebase';
 import { RemoteMessage } from 'react-native-firebase';
@@ -61,10 +62,11 @@ export default class App extends Component<Props> {
       vOutlink: false,
       vNavigation: false,
       isLike: false,
-      webviewUrl: 'https://garamfood.net',
+      webviewUrl: 'https://garamfood.net/',
       scrollEnable: true,
       username: 'guest',
       token: '',
+      fcm_token: '',
       isInicis: false
     };
     this.onWebViewMessage = this.onWebViewMessage.bind(this);
@@ -76,6 +78,7 @@ export default class App extends Component<Props> {
       nextAppState === "active"
     ) {
       console.log("App has come to the foreground!");
+      console.log('remote',this.state.remote)
       const handleDynamicLink = link => {
         // Handle dynamic link inside your own application
         console.log('handle link', link)
@@ -90,6 +93,9 @@ export default class App extends Component<Props> {
     // return () => unsubscribe();
 
     }
+    else {
+      console.log('App background!')
+    }
     this.setState({ appState: nextAppState });
   };
 
@@ -101,18 +107,25 @@ export default class App extends Component<Props> {
     // StatusBar.setBackgroundColor('white');
     // StatusBar.setBarStyle('dark-content');
 
-    firebase.messaging().getToken()
+    // if (!messaging().isDeviceRegisteredForRemoteMessages) {
+    //   console.log('not registered');
+    //   await messaging().registerDeviceForRemoteMessages();
+    // }
+
+    messaging().getToken()
       .then(fcmToken => {
         console.log('fcmToken', fcmToken)
         if (fcmToken) {
           // user has a device token
-          this.state.token = fcmToken;
+          this.state.fcm_token = fcmToken;
           axios.post(`${this.state.url}api/public/fcm_token`, {
             username: this.state.username,
             token: fcmToken,
             device: 'ios'
           }).then(res => {
             console.log('token', res);
+          }).catch(e=>{
+            console.log('err token',e);
           });
 
         } else {
@@ -120,7 +133,7 @@ export default class App extends Component<Props> {
         }
       });
 
-    firebase.messaging().hasPermission()
+    messaging().hasPermission()
       .then(enabled => {
         if (enabled) {
           // user has permissions
@@ -128,7 +141,7 @@ export default class App extends Component<Props> {
         } else {
           // user doesn't have permission
           console.log('fire base disabled:');
-          firebase.messaging().requestPermission()
+          messaging().requestPermission()
             .then(() => {
               // User has authorised
               console.log('fire base new request');
@@ -140,19 +153,74 @@ export default class App extends Component<Props> {
         }
       });
 
-    /*this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
-      // Process your token as required
-      console.log('ref token', fcmToken);
+    // this.onTokenRefreshListener = messaging().onTokenRefresh(fcmToken => {
+    //   console.log('ref token', fcmToken);
+    // });
+
+    firebase.notifications().getInitialNotification()
+      .then((notificationOpen: NotificationOpen) => {
+        if (notificationOpen) {
+          // App was opened by a notification
+          // Get the action triggered by the notification being opened
+          const action = notificationOpen.action;
+          // Get information about the notification that was opened
+          const notification: Notification = notificationOpen.notification;
+          console.log('init',notification)
+        }
+      });
+
+    this.messageListener = messaging().onMessage((message: RemoteMessage) => {
+      console.log('onMessage', message)
+
+      // Process your notification as required
+      const localNotification = new firebase.notifications.Notification()
+        .setNotificationId(message.messageId)
+        .setTitle(message.notification.title)
+        .setBody(message.notification.body)
+        .setData(message.data)
+        .ios.setLaunchImage(message.data.icon)
+        // .ios.setBadge(message.notification.ios);
+
+      // 수신된 푸시를 노티피로 띄움
+      firebase.notifications()
+        .displayNotification(localNotification)
+        .catch(err => console.error(err));
+
+      // alert(message.getNotification().getTitle(), message.getNotification().getBody());
     });
 
-    this.messageListener = firebase.messaging().onMessage((message: RemoteMessage) => {
-      // Process your message as required
-      alert(message.getNotification().getTitle(), message.getNotification().getBody());
-    });*/
+    // 백그라운드에서 푸시 수신
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log('back noti received', remoteMessage);
 
+      let page = remoteMessage.data.page;
+      console.log(page)
+      if (page.indexOf(this.state.url) > -1 || page.indexOf('http') === -1) {
+        if (page.indexOf('http') === -1) {
+          page = this.state.url + page;
+        }
+        console.log('인링크', page)
+        this.setState({
+          webviewUrl: this.state.url
+        })
+        this.setState({
+          webviewUrl: page
+        });
+
+      }
+      else {
+        console.log('아웃링크', page);
+        this.webview.stopLoading();
+        //console.log("**URL**", url);
+        this.setState({ vOutlink: true });
+        this.setState({ outlink_url: page });
+      }
+
+    });
+    
     // 푸시 수신
     this.notificationListener = firebase.notifications().onNotification((notification: Notification) => {
-      // Process your notification as required
+      console.log('onNotification')
       const localNotification = new firebase.notifications.Notification()
         .setNotificationId(notification.notificationId)
         .setTitle(notification.title)
@@ -161,7 +229,6 @@ export default class App extends Component<Props> {
         .setData(notification.data)
         .ios.setBadge(notification.ios.badge);
 
-      // 수신된 푸시를 노티피로 띄움
       firebase.notifications()
         .displayNotification(localNotification)
         .catch(err => console.error(err));
@@ -178,6 +245,7 @@ export default class App extends Component<Props> {
     this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen: NotificationOpen) => {
       //const action = notificationOpen.action;
       const notification: Notification = notificationOpen.notification;
+      console.log('notificationOpened',notification)
 
       let page = notification.data.page;
       console.log(page)
@@ -214,6 +282,8 @@ export default class App extends Component<Props> {
       // }
     });
 
+    console.log('message listener', this.messageListener, this.notificationDisplayedListener, this.notificationOpenedListener, this.notificationListener)
+
     Linking.addEventListener('url', (e) => {
       console.log('Linking')
       this.setState({
@@ -235,6 +305,8 @@ export default class App extends Component<Props> {
     this.notificationDisplayedListener();
     this.notificationListener();
     this.notificationOpenedListener();
+
+    this.messageListener();
 
     Linking.removeEventListener('url', (e) => {
       // do something with the url, in our case navigate(route)
@@ -325,6 +397,7 @@ export default class App extends Component<Props> {
   }
 
   onWebViewMessage(event) {
+    console.log('onWebViewMessage',event)
     let data = decodeURI(decodeURI(event.nativeEvent.data)).replace(/%3A/g, ':').replace(/%40/g, '@').replace(/%2C/g, ',');
     console.log("Message received from webview", data);
     if (data === 'slide') {
@@ -338,13 +411,15 @@ export default class App extends Component<Props> {
     data = JSON.parse(data);
 
     if (data.username) {
-      this.setState(data);
+      this.state.username = data.username;
+      this.state.token = data.token;
+      
       if (data.token) axios.defaults.headers['Authorization'] = 'Token ' + data.token;
-      console.log('테스트', data.username, this.state.token);
+      console.log('테스트', data.username, this.state);
 
       axios.post(`${this.state.url}api/public/fcm_token`, {
         username: data.username,
-        token: this.state.token,
+        token: this.state.fcm_token,
         device: 'ios'
       }).then(res => {
         console.log('token', res);
@@ -381,13 +456,14 @@ export default class App extends Component<Props> {
           originWhitelist={['*']}
           injectedJavaScript={INJECTEDJAVASCRIPT}
           onMessage={this.onWebViewMessage}
-          bounces={false}
+          bounces={true}
           scalesPageToFit={true}
           scrollEnabled={this.state.scrollEnable}
           javaScriptEnabled={true}
           startInLoadingState={true}
           sharedCookiesEnabled={true}
           thirdPartyCookiesEnabled={true}
+          decelerationRate='normal'
           
           onLoadStart={(event) => {
             const { url } = event.nativeEvent;
